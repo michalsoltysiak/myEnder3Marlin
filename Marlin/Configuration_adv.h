@@ -1911,8 +1911,8 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-//#define MINIMUM_STEPPER_POST_DIR_DELAY 650
-//#define MINIMUM_STEPPER_PRE_DIR_DELAY 650
+#define MINIMUM_STEPPER_POST_DIR_DELAY 20
+#define MINIMUM_STEPPER_PRE_DIR_DELAY 20
 
 /**
  * Minimum stepper driver pulse width (in µs)
@@ -1925,7 +1925,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-//#define MINIMUM_STEPPER_PULSE 2
+#define MINIMUM_STEPPER_PULSE 2
 
 /**
  * Maximum stepping rate (in Hz) the stepper driver allows
@@ -2681,7 +2681,7 @@
    * Beta feature!
    * Create a 50/50 square wave step pulse optimal for stepper drivers.
    */
-  //#define SQUARE_WAVE_STEPPING
+  #define SQUARE_WAVE_STEPPING
 
   /**
    * Enable M122 debugging command for TMC stepper drivers.
