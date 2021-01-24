@@ -26,7 +26,7 @@
 //
 
 #include "../../inc/MarlinConfigPre.h"
-
+#include "../Marlin/src/MarlinCore.h"
 #if HAS_MARLINUI_U8GLIB && DISABLED(LIGHTWEIGHT_UI)
 
 #include "dogm_Statusscreen.h"
