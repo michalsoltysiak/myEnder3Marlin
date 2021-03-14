@@ -1049,11 +1049,20 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
+#define PETFANG
+//#define HOME_BREW_DIRECT
+#if defined(HOME_BREW_DIRECT)
 #define NOZZLE_TO_PROBE_OFFSET { -42, -7, 2 }
+#elif defined(PETFANG)
+#define NOZZLE_TO_PROBE_OFFSET { -47, -13, 2 }
+#else
+#define NOZZLE_TO_PROBE_OFFSET { -42, -7, 2 }
+#endif
+
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 22
+#define PROBING_MARGIN 10
 
 
 // X and Y axis travel speed (mm/min) between probes
@@ -1513,7 +1522,13 @@
 #define LEVEL_BED_CORNERS
 
 #if ENABLED(LEVEL_BED_CORNERS)
-  #define LEVEL_CORNERS_INSET_LFRB { 45, 23, 45, 23 } // (mm) Left, Front, Right, Back insets
+#if defined(HOME_BREW_DIRECT)
+#define LEVEL_CORNERS_INSET_LFRB { 45, 23, 45, 23 } // (mm) Left, Front, Right, Back insets
+#elif defined(PETFANG)
+#define LEVEL_CORNERS_INSET_LFRB { 15, 15, 47, 15 } // (mm) Left, Front, Right, Back insets
+#else
+#define LEVEL_CORNERS_INSET_LFRB { 45, 23, 45, 23 } // (mm) Left, Front, Right, Back insets
+#endif
   #define LEVEL_CORNERS_HEIGHT      0.1   // (mm) Z height of nozzle at leveling points
   #define LEVEL_CORNERS_Z_HOP       4.0   // (mm) Z height of nozzle between leveling points
   //#define LEVEL_CENTER_TOO              // Move to the center after the last corner
