@@ -793,7 +793,12 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+#define EXTRUDERS_STEPS_STOCK 93
+#define EXTRUDERS_STEPS_DUAL_DRIVE 135.6
+
+#define EXTRUDERS_STEPS EXTRUDERS_STEPS_DUAL_DRIVE
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, EXTRUDERS_STEPS }
+
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1049,10 +1054,10 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define PETFANG
-//#define HOME_BREW_DIRECT
+//#define PETFANG
+#define HOME_BREW_DIRECT
 #if defined(HOME_BREW_DIRECT)
-#define NOZZLE_TO_PROBE_OFFSET { -42, -7, 2 }
+#define NOZZLE_TO_PROBE_OFFSET { -42, -7, -2.0 }
 #elif defined(PETFANG)
 #define NOZZLE_TO_PROBE_OFFSET { -47, -13, 2 }
 #else
