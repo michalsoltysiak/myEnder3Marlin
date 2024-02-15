@@ -1171,7 +1171,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 932 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1493,7 +1493,8 @@
  *     O-- FRONT --+
  */
 //#define NOZZLE_TO_PROBE_OFFSET { -44, -14, 2 }/*direct*/
-#define NOZZLE_TO_PROBE_OFFSET { 49, -1, 2 }/*bowden + blockhead*/
+// #define NOZZLE_TO_PROBE_OFFSET { 49, -1, 2 }/*bowden + blockhead*/
+#define NOZZLE_TO_PROBE_OFFSET { -40, -1, -3.28 }/*biqu h2*/
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1765,7 +1766,7 @@
 #endif
 
 #if EITHER(MIN_SOFTWARE_ENDSTOPS, MAX_SOFTWARE_ENDSTOPS)
-  //#define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
+  #define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
 #endif
 
 /**
@@ -1781,7 +1782,7 @@
  * RAMPS-based boards use SERVO3_PIN for the first runout sensor.
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  */
-//#define FILAMENT_RUNOUT_SENSOR
+#define FILAMENT_RUNOUT_SENSOR
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
@@ -2261,7 +2262,7 @@
  *    P1  Raise the nozzle always to Z-park height.
  *    P2  Raise the nozzle by Z-park amount, limited to Z_MAX_POS.
  */
-//#define NOZZLE_PARK_FEATURE
+#define NOZZLE_PARK_FEATURE
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
@@ -2390,7 +2391,7 @@
  *
  * View the current statistics with M78.
  */
-//#define PRINTCOUNTER
+#define PRINTCOUNTER
 #if ENABLED(PRINTCOUNTER)
   #define PRINTCOUNTER_SAVE_INTERVAL 60 // (minutes) EEPROM save interval during print. A value of 0 will save stats at end of print.
 #endif
@@ -2553,7 +2554,7 @@
 //
 // This option increases encoder samples to filter out phantom encoder clicks caused by EMI noise.
 //
-//#define ENCODER_NOISE_FILTER
+#define ENCODER_NOISE_FILTER
 #if ENABLED(ENCODER_NOISE_FILTER)
   #define ENCODER_SAMPLES 10
 #endif
@@ -2563,7 +2564,7 @@
 //
 // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
 //
-//#define INDIVIDUAL_AXIS_HOMING_MENU
+#define INDIVIDUAL_AXIS_HOMING_MENU
 #define INDIVIDUAL_AXIS_HOMING_SUBMENU
 
 //
